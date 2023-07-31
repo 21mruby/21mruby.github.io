@@ -3,8 +3,9 @@
   <head>
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
   </head>
-  <body>мяу...</body>
+  <body><span id="b">...</span>span></body>
   <script>
-    vkBridge.send('VKWebAppInit');
+    vkBridge.send('VKWebAppInit', {});
+    document.getElementById("b").innerText = window.location.hash;
   </script>
 </html>
