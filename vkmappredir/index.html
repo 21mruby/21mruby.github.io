@@ -5,7 +5,18 @@
   </head>
   <body><span id="b">...</span>span></body>
   <script>
-    vkBridge.send('VKWebAppInit', {});
-    document.getElementById("b").innerText = window.location.hash;
+    const b = document.getElementById("b");
+    vkBridge.send('VKWebAppInit', {})
+  .then((data) => { 
+    if (data.result) {
+      b.innerText = "hash";
+    } else {
+      b.innerText = "мяу...";
+    }
+  })
+  .catch((error) => {
+    b.innerText = "мяу...";
+    console.log(error);
+  });
   </script>
 </html>
